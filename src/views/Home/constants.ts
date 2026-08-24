@@ -25,7 +25,7 @@ export const ABOUT = {
   paragraphs: [
     'I have a B.S. in Computer Engineering from West Virginia University.',
     'I write TypeScript end to end: Vite and React on the frontend, Node APIs and Cloud Functions on the backend, Firebase and GCP for auth, data, and hosting.',
-    'A lot of that is with Cursor. Skills, rules, and hooks sit in the repo so the agent works the way I do.',
+    'I use Cursor to enhance my workflow. Skills, rules, and hooks sit in the repo so the agent works the way I do.',
     'In my free time, I like to play golf and go fishing.',
   ],
 };
