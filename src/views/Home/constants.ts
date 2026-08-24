@@ -1,63 +1,69 @@
 export const SITE = {
   name: 'Jack',
   role: 'Software engineer',
-  email: 'hello@example.com',
-  location: 'Placeholder city',
+  email: 'jbenedickson826@gmail.com',
+  location: 'Doylestown, PA',
 };
 
 export const INTRO = {
   kicker: SITE.name,
-  title: 'Placeholder headline about who you are.',
+  title: 'I build TypeScript apps for the web and the cloud.',
   lede:
-    'Placeholder intro. A short line about what you do, where you are, and the kind of work you want people to know you for.',
+    'Based in Doylestown, PA. I work across React, Firebase, and Google Cloud — and I treat AI coding agents as part of the repo, not a side chat.',
 };
 
 export const ABOUT = {
   title: 'About',
   paragraphs: [
-    'Placeholder bio. Swap this for a couple of sentences on where you are, what you work on, and how you got here.',
-    'Another paragraph can cover interests outside of work, the tools you like, or the problems you want to spend time on.',
+    'I’m a software engineer in Doylestown, Pennsylvania, with a B.S. in Computer Engineering from West Virginia University.',
+    'Most of my work is full-stack TypeScript: Vite and React on the frontend, Node APIs and Cloud Functions on the backend, Firebase and GCP for auth, data, and hosting.',
+    'I write a lot of that code with Cursor. Skills, rules, and hooks live in the repo, so the agent follows the same process we already use to ship.',
+    'When I’m away from the keyboard, I’m usually fishing or on a golf course.',
   ],
 };
 
 export const FOCUS = [
   {
-    title: 'Engineering',
-    body: 'Placeholder. Describe the kind of software you like to ship.',
+    title: 'React & TypeScript',
+    body: 'Vite apps, typed UI, and the screens people actually work in.',
   },
   {
-    title: 'Product',
-    body: 'Placeholder. Talk about how you think about users and craft.',
+    title: 'Firebase & GCP',
+    body: 'Auth, Firestore, Cloud Functions, Cloud Run — laptop to live.',
   },
   {
-    title: 'Learning',
-    body: 'Placeholder. Mention what you are exploring right now.',
+    title: 'APIs',
+    body: 'Node and Express services, shared models, the glue between the browser and the database.',
   },
   {
-    title: 'Life',
-    body: 'Placeholder. A note on hobbies, people, or places that matter.',
+    title: 'Agents in the repo',
+    body: 'Cursor skills for the job, rules for the house style, hooks that gate shell, tickets, and edits. The AI ships the way the team already ships.',
+  },
+  {
+    title: 'Off the clock',
+    body: 'Fishing and golf.',
   },
 ] as const;
 
 export const PATH = [
   {
     step: '01',
-    title: 'Started here',
-    body: 'Placeholder. First chapter — school, first job, or how you got into this.',
+    title: 'West Virginia University',
+    body: 'B.S. in Computer Engineering, Morgantown, WV.',
   },
   {
     step: '02',
-    title: 'Building now',
-    body: 'Placeholder. What you spend most days on today.',
+    title: 'Newport News Shipbuilding',
+    body: 'Software engineer, Instrumentation & Control. Built an LLM RAG tool so engineers could query ship specs in plain language, prototyped an electric-plant HMI, and programmed a Xilinx Zynq to emulate PLC I/O — then wrote the docs that onboarded the next engineer.',
   },
   {
     step: '03',
-    title: 'Next up',
-    body: 'Placeholder. Where you want to go, or what you want to learn next.',
+    title: 'FreeTech',
+    body: 'Full-stack developer since 2023. TypeScript monorepo with React, Firebase, Cloud Functions, and Express on Cloud Run — plus skills, rules, and hooks so the agent follows the same process I do.',
   },
 ] as const;
 
 export const CONTACT = {
   title: 'Contact',
-  body: 'Placeholder. Invite people to email you, or link out to work and socials later.',
+  body: 'I’m in Doylestown. If you want to talk software, agents, or golf, send a note.',
 };

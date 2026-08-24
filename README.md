@@ -1,6 +1,6 @@
 # About Me
 
-A single-page personal site. Placeholder copy for now — swap the content in `src/views/Home/constants.ts` when you're ready.
+A single-page personal site. Edit the copy in `src/views/Home/constants.ts`.
 
 ## Stack
 
