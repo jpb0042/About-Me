@@ -6,9 +6,9 @@ const EASE = 'power4.out';
 /** Reveal order inside each section, first entry animates first. */
 const SECTION_ORDER: Record<string, string[]> = {
   about: ['.about__copy p', '.portrait'],
+  built: ['.built__tabs', '.built__panel'],
   focus: ['.focus-card'],
-  path: ['.path-list__item'],
-  contact: ['.contact__body', '.contact__link'],
+  contact: ['.contact__body', '.contact__icons'],
 };
 
 export function usePageMotion() {
@@ -34,8 +34,7 @@ export function usePageMotion() {
         )
         .from('.social-dock a', { y: 16, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.35)
         .from('.intro__kicker', { y: 12, autoAlpha: 0, duration: 0.7 }, 0.28)
-        .from('.intro__lede', { y: 20, autoAlpha: 0, duration: 0.95 }, 1.02)
-        .from('.intro__meta', { y: 14, autoAlpha: 0, duration: 0.85 }, 1.16);
+        .from('.intro__lede', { y: 20, autoAlpha: 0, duration: 0.95 }, 1.02);
 
       SplitText.create('.intro h1', {
         type: 'words,lines',
@@ -53,6 +52,7 @@ export function usePageMotion() {
       });
 
       find<HTMLElement>('.block').forEach((section) => {
+        if (section.hidden) return;
         const content = (SECTION_ORDER[section.id] ?? []).flatMap((selector) =>
           Array.from(section.querySelectorAll<HTMLElement>(selector)),
         );
@@ -76,7 +76,7 @@ export function usePageMotion() {
       });
 
       const rail = page.querySelector('.path-list__rail');
-      if (rail) {
+      if (rail && !page.querySelector('#path[hidden]')) {
         gsap.fromTo(
           rail,
           { scaleY: 0 },
@@ -91,17 +91,6 @@ export function usePageMotion() {
             },
           },
         );
-      }
-
-      const contactRules = find('.contact__link-rule');
-      if (contactRules.length) {
-        gsap.from(contactRules, {
-          scaleX: 0,
-          duration: 1,
-          stagger: 0.12,
-          ease: 'power3.inOut',
-          scrollTrigger: { trigger: '.contact__links', start: 'top 88%' },
-        });
       }
 
       find<HTMLElement>('.focus-card').forEach((card) => {

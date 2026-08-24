@@ -1,6 +1,6 @@
 import { SectionHead } from 'components';
 import golf from '../../../assets/golf.jpg';
-import { ABOUT, SITE } from '../constants';
+import { ABOUT } from '../constants';
 
 export function About() {
   return (
@@ -13,7 +13,8 @@ export function About() {
           ))}
         </div>
         <figure className="portrait">
-          <img src={golf} alt={`${SITE.name}, ${SITE.role}`} />
+          <img src={golf} alt="Golf" />
+          <figcaption>Golf</figcaption>
         </figure>
       </div>
     </section>

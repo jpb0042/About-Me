@@ -1,5 +1,12 @@
 import { SectionHead } from 'components';
-import { CONTACT, LINKS, SITE } from '../constants';
+import { EmailIcon, GitHubIcon, LinkedInIcon } from 'components/SocialIcons';
+import { CONTACT, LINKS } from '../constants';
+
+const ICONS = {
+  GitHub: GitHubIcon,
+  LinkedIn: LinkedInIcon,
+  Email: EmailIcon,
+} as const;
 
 export function Contact() {
   return (
@@ -7,20 +14,21 @@ export function Contact() {
       <SectionHead index="04" title={CONTACT.title} />
       <div className="contact">
         <p className="contact__body">{CONTACT.body}</p>
-        <ul className="contact__links">
-          {LINKS.map((item) => (
-            <li key={item.label}>
+        <nav className="contact__icons" aria-label="Contact links">
+          {LINKS.map((item) => {
+            const Icon = ICONS[item.label];
+            return (
               <a
-                className="contact__link"
+                key={item.label}
                 href={item.href}
                 {...(item.external ? { target: '_blank', rel: 'noreferrer' } : {})}
               >
-                {item.label === 'Email' ? SITE.email : item.label}
-                <span className="contact__link-rule" aria-hidden />
+                <Icon />
+                <span className="visually-hidden">{item.label}</span>
               </a>
-            </li>
-          ))}
-        </ul>
+            );
+          })}
+        </nav>
       </div>
     </section>
   );

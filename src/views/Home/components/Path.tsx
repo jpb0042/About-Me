@@ -3,8 +3,8 @@ import { PATH } from '../constants';
 
 export function Path() {
   return (
-    <section className="block" id="path">
-      <SectionHead index="03" title="Path" />
+    <section className="block" id="path" hidden>
+      <SectionHead index="04" title="Path" />
       <div className="path-list-wrap">
         <span className="path-list__rail" aria-hidden />
         <ol className="path-list">

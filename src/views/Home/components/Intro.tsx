@@ -1,4 +1,4 @@
-import { INTRO, SITE } from '../constants';
+import { INTRO } from '../constants';
 
 export function Intro() {
   return (
@@ -14,11 +14,6 @@ export function Intro() {
         </h1>
       </div>
       <p className="intro__lede">{INTRO.lede}</p>
-      <p className="intro__meta">
-        {SITE.role}
-        <span aria-hidden> / </span>
-        {SITE.location}
-      </p>
     </section>
   );
 }
