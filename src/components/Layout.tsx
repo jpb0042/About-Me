@@ -1,9 +1,19 @@
 import { Link, Outlet } from 'react-router-dom';
 import { SITE } from '../views/Home/constants';
+import { usePageMotion } from '../lib/usePageMotion';
+
+const NAV = [
+  { href: '#about', label: 'About' },
+  { href: '#focus', label: 'Focus' },
+  { href: '#path', label: 'Path' },
+  { href: '#contact', label: 'Contact' },
+] as const;
 
 export function Layout() {
+  const pageRef = usePageMotion();
+
   return (
-    <div className="page">
+    <div className="page" ref={pageRef}>
       <aside className="identity">
         <Link to="/" className="identity__name">
           {SITE.name}
@@ -14,10 +24,12 @@ export function Layout() {
           {SITE.location}
         </p>
         <nav className="identity__nav" aria-label="Primary">
-          <a href="#about">About</a>
-          <a href="#focus">Focus</a>
-          <a href="#path">Path</a>
-          <a href="#contact">Contact</a>
+          {NAV.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+              <span className="nav-line" aria-hidden />
+            </a>
+          ))}
         </nav>
         <a className="identity__email" href={`mailto:${SITE.email}`}>
           {SITE.email}
