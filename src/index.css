@@ -92,23 +92,14 @@ img {
 
 .site-nav__name {
   grid-area: name;
-  display: block;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 0.45rem;
-  overflow: hidden;
-  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 .site-nav__name::after {
-  content: none;
-}
-
-.site-nav__name img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  content: '_';
+  color: var(--accent);
 }
 
 .site-nav__links {
