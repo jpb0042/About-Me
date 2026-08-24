@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import { SITE } from '../views/Home/constants';
 import { usePageMotion } from '../lib/usePageMotion';
 import { SocialDock } from './SocialDock';
@@ -17,7 +18,7 @@ export function Layout() {
     <div className="page" ref={pageRef}>
       <header className="site-nav">
         <Link to="/" className="site-nav__name">
-          {SITE.name}
+          <img src={logo} alt={SITE.name} />
         </Link>
         <nav className="site-nav__links" aria-label="Primary">
           {NAV.map((item) => (
@@ -27,10 +28,15 @@ export function Layout() {
             </a>
           ))}
         </nav>
-        <a className="site-nav__email" href={`mailto:${SITE.email}`}>
-          {SITE.email}
-          <span className="nav-line" aria-hidden />
-        </a>
+        <div className="site-nav__aside">
+          <a className="site-nav__email" href={`mailto:${SITE.email}`}>
+            {SITE.email}
+            <span className="nav-line" aria-hidden />
+          </a>
+          <a className="site-nav__resume" href={SITE.resume} target="_blank" rel="noreferrer">
+            Resume
+          </a>
+        </div>
       </header>
 
       <div className="page__main">

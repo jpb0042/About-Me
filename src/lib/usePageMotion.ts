@@ -28,11 +28,12 @@ export function usePageMotion() {
       hero
         .from('.site-nav__name', { y: -12, autoAlpha: 0, duration: 0.75 }, 0)
         .from(
-          find('.site-nav__links a, .site-nav__email'),
+          find('.site-nav__links a, .site-nav__email, .site-nav__resume'),
           { y: -10, autoAlpha: 0, duration: 0.7, stagger: 0.05 },
           0.1,
         )
         .from('.social-dock a', { y: 16, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.35)
+        .from('.intro__kicker', { y: 12, autoAlpha: 0, duration: 0.7 }, 0.28)
         .from('.intro__lede', { y: 20, autoAlpha: 0, duration: 0.95 }, 1.02)
         .from('.intro__meta', { y: 14, autoAlpha: 0, duration: 0.85 }, 1.16);
 

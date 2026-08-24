@@ -5,6 +5,7 @@ export const SITE = {
   location: 'Doylestown, PA',
   github: 'https://github.com/jpb0042',
   linkedin: 'https://www.linkedin.com/in/john-benedickson-433605260/',
+  resume: '/John_Benedickson_Resume.pdf',
 };
 
 export const LINKS = [
@@ -14,15 +15,15 @@ export const LINKS = [
 ] as const;
 
 export const INTRO = {
-  title: 'I build TypeScript apps.',
-  lede:
-    'I live in Doylestown. Most of my work is React, Firebase, and Google Cloud. Cursor is in the repo with everything else.',
+  kicker: 'Hello, my name is',
+  title: ['John Benedickson.', 'I build custom software for small businesses.'],
+  lede: "I'm a full stack developer living in Doylestown, PA. Most of my work is React, Firebase, and Google Cloud.",
 };
 
 export const ABOUT = {
   title: 'About',
   paragraphs: [
-    'I live in Doylestown, PA. I have a B.S. in Computer Engineering from West Virginia University.',
+    'I have a B.S. in Computer Engineering from West Virginia University.',
     'I write TypeScript end to end: Vite and React on the frontend, Node APIs and Cloud Functions on the backend, Firebase and GCP for auth, data, and hosting.',
     'A lot of that is with Cursor. Skills, rules, and hooks sit in the repo so the agent works the way I do.',
     'In my free time, I like to play golf and go fishing.',
@@ -48,7 +49,7 @@ export const FOCUS = [
   {
     icon: 'gcp',
     title: 'Google Cloud',
-    body: 'Cloud Run and the rest of GCP.',
+    body: 'Cloud Run and hosting.',
   },
   {
     icon: 'api',
@@ -58,7 +59,7 @@ export const FOCUS = [
   {
     icon: 'cursor',
     title: 'Cursor',
-    body: 'Skills, rules, and hooks in the repo.',
+    body: 'Skills and rules enhance my agents.',
   },
 ] as const;
 
@@ -82,5 +83,5 @@ export const PATH = [
 
 export const CONTACT = {
   title: 'Contact',
-  body: 'I’m in Doylestown. If you want to talk software, agents, or golf, send a note.',
+  body: 'If you want to talk software, agents, or golf, send a note.',
 };
