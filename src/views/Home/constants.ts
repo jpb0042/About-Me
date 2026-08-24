@@ -1,47 +1,64 @@
 export const SITE = {
-  name: 'Jack',
+  name: 'John',
   role: 'Software engineer',
   email: 'jbenedickson826@gmail.com',
   location: 'Doylestown, PA',
+  github: 'https://github.com/jpb0042',
+  linkedin: 'https://www.linkedin.com/in/john-benedickson-433605260/',
 };
 
+export const LINKS = [
+  { label: 'GitHub', href: SITE.github, external: true },
+  { label: 'LinkedIn', href: SITE.linkedin, external: true },
+  { label: 'Email', href: `mailto:${SITE.email}`, external: false },
+] as const;
+
 export const INTRO = {
-  kicker: SITE.name,
-  title: 'I build TypeScript apps for the web and the cloud.',
+  title: 'I build TypeScript apps.',
   lede:
-    'Based in Doylestown, PA. I work across React, Firebase, and Google Cloud — and I treat AI coding agents as part of the repo, not a side chat.',
+    'I live in Doylestown. Most of my work is React, Firebase, and Google Cloud. Cursor is in the repo with everything else.',
 };
 
 export const ABOUT = {
   title: 'About',
   paragraphs: [
-    'I’m a software engineer in Doylestown, Pennsylvania, with a B.S. in Computer Engineering from West Virginia University.',
-    'Most of my work is full-stack TypeScript: Vite and React on the frontend, Node APIs and Cloud Functions on the backend, Firebase and GCP for auth, data, and hosting.',
-    'I write a lot of that code with Cursor. Skills, rules, and hooks live in the repo, so the agent follows the same process we already use to ship.',
-    'When I’m away from the keyboard, I’m usually fishing or on a golf course.',
+    'I live in Doylestown, PA. I have a B.S. in Computer Engineering from West Virginia University.',
+    'I write TypeScript end to end: Vite and React on the frontend, Node APIs and Cloud Functions on the backend, Firebase and GCP for auth, data, and hosting.',
+    'A lot of that is with Cursor. Skills, rules, and hooks sit in the repo so the agent works the way I do.',
+    'In my free time, I like to play golf and go fishing.',
   ],
 };
 
 export const FOCUS = [
   {
-    title: 'React & TypeScript',
-    body: 'Vite apps, typed UI, and the screens people actually work in.',
+    icon: 'react',
+    title: 'React',
+    body: 'Vite apps and typed UI.',
   },
   {
-    title: 'Firebase & GCP',
-    body: 'Auth, Firestore, Cloud Functions, Cloud Run — laptop to live.',
+    icon: 'typescript',
+    title: 'TypeScript',
+    body: 'What I write almost everything in.',
   },
   {
+    icon: 'firebase',
+    title: 'Firebase',
+    body: 'Auth, Firestore, Cloud Functions.',
+  },
+  {
+    icon: 'gcp',
+    title: 'Google Cloud',
+    body: 'Cloud Run and the rest of GCP.',
+  },
+  {
+    icon: 'api',
     title: 'APIs',
-    body: 'Node and Express services, shared models, the glue between the browser and the database.',
+    body: 'Node and Express.',
   },
   {
-    title: 'Agents in the repo',
-    body: 'Cursor skills for the job, rules for the house style, hooks that gate shell, tickets, and edits. The AI ships the way the team already ships.',
-  },
-  {
-    title: 'Off the clock',
-    body: 'Fishing and golf.',
+    icon: 'cursor',
+    title: 'Cursor',
+    body: 'Skills, rules, and hooks in the repo.',
   },
 ] as const;
 

@@ -1,5 +1,6 @@
-import { Placeholder, SectionHead } from 'components';
-import { ABOUT } from '../constants';
+import { SectionHead } from 'components';
+import golf from '../../../assets/golf.jpg';
+import { ABOUT, SITE } from '../constants';
 
 export function About() {
   return (
@@ -11,7 +12,9 @@ export function About() {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
-        <Placeholder label="Portrait" caption="Photo placeholder" />
+        <figure className="portrait">
+          <img src={golf} alt={`${SITE.name}, ${SITE.role}`} />
+        </figure>
       </div>
     </section>
   );

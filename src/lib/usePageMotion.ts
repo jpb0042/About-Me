@@ -5,7 +5,7 @@ const EASE = 'power4.out';
 
 /** Reveal order inside each section, first entry animates first. */
 const SECTION_ORDER: Record<string, string[]> = {
-  about: ['.about__copy p', '.placeholder'],
+  about: ['.about__copy p', '.portrait'],
   focus: ['.focus-card'],
   path: ['.path-list__item'],
   contact: ['.contact__body', '.contact__link'],
@@ -23,20 +23,18 @@ export function usePageMotion() {
       const find = <T extends Element>(selector: string) =>
         Array.from(page.querySelectorAll<T>(selector));
 
-      // --- hero: identity rail, then kicker, headline, lede, meta, cue ---
       const hero = gsap.timeline({ defaults: { ease: EASE } });
 
       hero
-        .from('.identity__name', { y: 20, autoAlpha: 0, duration: 0.9 }, 0)
+        .from('.site-nav__name', { y: -12, autoAlpha: 0, duration: 0.75 }, 0)
         .from(
-          find('.identity__meta, .identity__nav a, .identity__email'),
-          { y: 14, autoAlpha: 0, duration: 0.8, stagger: 0.06 },
-          0.12,
+          find('.site-nav__links a, .site-nav__email'),
+          { y: -10, autoAlpha: 0, duration: 0.7, stagger: 0.05 },
+          0.1,
         )
-        .from('.intro .kicker', { x: -14, autoAlpha: 0, duration: 0.8 }, 0.32)
+        .from('.social-dock a', { y: 16, autoAlpha: 0, duration: 0.7, stagger: 0.08 }, 0.35)
         .from('.intro__lede', { y: 20, autoAlpha: 0, duration: 0.95 }, 1.02)
-        .from('.intro__meta', { y: 14, autoAlpha: 0, duration: 0.85 }, 1.16)
-        .from('.intro__cue', { y: 14, autoAlpha: 0, duration: 0.85 }, 1.3);
+        .from('.intro__meta', { y: 14, autoAlpha: 0, duration: 0.85 }, 1.16);
 
       SplitText.create('.intro h1', {
         type: 'words,lines',
@@ -53,23 +51,6 @@ export function usePageMotion() {
         },
       });
 
-      const cueDot = page.querySelector('.intro__cue-dot');
-      if (cueDot) {
-        gsap.fromTo(
-          cueDot,
-          { xPercent: -100 },
-          {
-            xPercent: 320,
-            duration: 1.9,
-            ease: 'power2.inOut',
-            repeat: -1,
-            repeatDelay: 0.7,
-            delay: 2,
-          },
-        );
-      }
-
-      // --- sections: rule draws, label follows, content staggers in ---
       find<HTMLElement>('.block').forEach((section) => {
         const content = (SECTION_ORDER[section.id] ?? []).flatMap((selector) =>
           Array.from(section.querySelectorAll<HTMLElement>(selector)),
@@ -111,28 +92,55 @@ export function usePageMotion() {
         );
       }
 
-      const contactRule = page.querySelector('.contact__link-rule');
-      if (contactRule) {
-        gsap.from(contactRule, {
+      const contactRules = find('.contact__link-rule');
+      if (contactRules.length) {
+        gsap.from(contactRules, {
           scaleX: 0,
           duration: 1,
+          stagger: 0.12,
           ease: 'power3.inOut',
-          scrollTrigger: { trigger: '.contact__link', start: 'top 88%' },
+          scrollTrigger: { trigger: '.contact__links', start: 'top 88%' },
         });
       }
 
-      const sheen = page.querySelector('.placeholder__sheen');
-      if (sheen) {
-        gsap.to(sheen, {
-          xPercent: 180,
-          duration: 2.8,
-          ease: 'power1.inOut',
-          repeat: -1,
-          repeatDelay: 2.4,
-        });
-      }
+      find<HTMLElement>('.focus-card').forEach((card) => {
+        const icon = card.querySelector('.focus-card__icon');
 
-      find<HTMLAnchorElement>('.identity__nav a').forEach((link) => {
+        const enter = contextSafe(() => {
+          gsap.to(card, { y: -6, duration: 0.32, ease: 'power2.out', overwrite: 'auto' });
+          if (icon) {
+            gsap.to(icon, {
+              scale: 1.12,
+              rotate: -8,
+              duration: 0.4,
+              ease: 'back.out(1.7)',
+              overwrite: 'auto',
+            });
+          }
+        });
+        const leave = contextSafe(() => {
+          gsap.to(card, { y: 0, duration: 0.36, ease: 'power2.inOut', overwrite: 'auto' });
+          if (icon) {
+            gsap.to(icon, {
+              scale: 1,
+              rotate: 0,
+              duration: 0.32,
+              ease: 'power2.inOut',
+              overwrite: 'auto',
+            });
+          }
+        });
+
+        card.addEventListener('pointerenter', enter);
+        card.addEventListener('pointerleave', leave);
+
+        cleanups.push(() => {
+          card.removeEventListener('pointerenter', enter);
+          card.removeEventListener('pointerleave', leave);
+        });
+      });
+
+      find<HTMLAnchorElement>('.site-nav__links a, .site-nav__email').forEach((link) => {
         const line = link.querySelector('.nav-line');
         if (!line) return;
 

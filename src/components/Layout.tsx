@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import { SITE } from '../views/Home/constants';
 import { usePageMotion } from '../lib/usePageMotion';
+import { SocialDock } from './SocialDock';
 
 const NAV = [
   { href: '#about', label: 'About' },
@@ -14,16 +15,11 @@ export function Layout() {
 
   return (
     <div className="page" ref={pageRef}>
-      <aside className="identity">
-        <Link to="/" className="identity__name">
+      <header className="site-nav">
+        <Link to="/" className="site-nav__name">
           {SITE.name}
         </Link>
-        <p className="identity__meta">
-          {SITE.role}
-          <span aria-hidden> · </span>
-          {SITE.location}
-        </p>
-        <nav className="identity__nav" aria-label="Primary">
+        <nav className="site-nav__links" aria-label="Primary">
           {NAV.map((item) => (
             <a key={item.href} href={item.href}>
               {item.label}
@@ -31,10 +27,11 @@ export function Layout() {
             </a>
           ))}
         </nav>
-        <a className="identity__email" href={`mailto:${SITE.email}`}>
+        <a className="site-nav__email" href={`mailto:${SITE.email}`}>
           {SITE.email}
+          <span className="nav-line" aria-hidden />
         </a>
-      </aside>
+      </header>
 
       <div className="page__main">
         <main>
@@ -46,6 +43,8 @@ export function Layout() {
           </p>
         </footer>
       </div>
+
+      <SocialDock />
     </div>
   );
 }
