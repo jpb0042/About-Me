@@ -1,3 +1,16 @@
+import crmActivityPhoto from '../../assets/crm-activity.png';
+import crmContactPhoto from '../../assets/crm-contact.png';
+import crmLeadPhoto from '../../assets/crm-lead.jpg';
+import crmPhoto from '../../assets/crm.jpg';
+import logisticsPhoto from '../../assets/logistics.jpg';
+import logisticsPlanPhoto from '../../assets/logistics-plan.png';
+import logisticsStatusPhoto from '../../assets/logistics-status.jpg';
+import logisticsVehiclesPhoto from '../../assets/logistics-vehicles.jpg';
+import micromouseVideo from '../../assets/micromouse.webm';
+import stackhuntAddressPhoto from '../../assets/stackhunt-address.jpg';
+import stackhuntMatchesPhoto from '../../assets/stackhunt-matches.jpg';
+import stackhuntPhoto from '../../assets/stackhunt.jpg';
+
 export const SITE = {
   name: 'John',
   role: 'Software engineer',
@@ -24,11 +37,39 @@ export const ABOUT = {
   title: 'About',
   paragraphs: [
     'I have a B.S. in Computer Engineering from West Virginia University.',
-    'I write TypeScript end to end: Vite and React on the frontend, Node APIs and Cloud Functions on the backend, Firebase and GCP for auth, data, and hosting.',
-    'I use Cursor to enhance my workflow. Skills, rules, and hooks sit in the repo so the agent works the way I do.',
     'In my free time, I like to play golf and go fishing.',
   ],
 };
+
+export const BUILT = {
+  title: 'Built',
+  items: [
+    {
+      id: 'crm',
+      title: 'CRM',
+      body: 'A contacts tool for sales. You can see stage, activity, and who owns the account.',
+      photos: [crmPhoto, crmContactPhoto, crmActivityPhoto, crmLeadPhoto],
+    },
+    {
+      id: 'logistics',
+      title: 'Logistics',
+      body: 'Dispatch software for truck shipments. Legs, locations, and repair time live on one plan.',
+      photos: [logisticsPhoto, logisticsPlanPhoto, logisticsVehiclesPhoto, logisticsStatusPhoto],
+    },
+    {
+      id: 'stackhunt',
+      title: 'StackHunt',
+      body: 'Drop in local repos. StackHunt reads the stack in the browser, then matches public job listings and commute times.',
+      photos: [stackhuntPhoto, stackhuntMatchesPhoto, stackhuntAddressPhoto],
+    },
+    {
+      id: 'micromouse',
+      title: 'MicroMouse',
+      body: 'A maze-solving robot I built during my computer engineering work at WVU.',
+      video: micromouseVideo,
+    },
+  ],
+} as const;
 
 export const FOCUS = [
   {

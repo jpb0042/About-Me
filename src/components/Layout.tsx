@@ -5,8 +5,8 @@ import { SocialDock } from './SocialDock';
 
 const NAV = [
   { href: '#about', label: 'About' },
+  { href: '#built', label: 'Built' },
   { href: '#focus', label: 'Focus' },
-  { href: '#path', label: 'Path' },
   { href: '#contact', label: 'Contact' },
 ] as const;
 

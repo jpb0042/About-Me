@@ -5,7 +5,7 @@ import { FocusIcon } from './FocusIcons';
 export function Focus() {
   return (
     <section className="block" id="focus">
-      <SectionHead index="02" title="Focus" />
+      <SectionHead index="03" title="Focus" />
       <ul className="focus-grid">
         {FOCUS.map((item) => (
           <li key={item.title} className="focus-card">
