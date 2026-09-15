@@ -1,9 +1,16 @@
+'use client';
+
 import { useState } from 'react';
 import { SectionHead } from 'components';
 import { prefersReducedMotion } from '../../../lib/gsap';
 import { BUILT } from '../constants';
 
 type BuiltItem = (typeof BUILT.items)[number];
+type MediaSrc = string | { src: string };
+
+function mediaUrl(src: MediaSrc) {
+  return typeof src === 'string' ? src : src.src;
+}
 
 function photosOf(item: BuiltItem) {
   return 'photos' in item ? item.photos : [];
@@ -38,6 +45,7 @@ function BuiltGallery({ item }: { item: BuiltItem }) {
   };
 
   if (video && !photo) {
+    const videoSrc = mediaUrl(video);
     return (
       <figure className="built-frame">
         <div className="built-frame__slot is-filled">
@@ -50,7 +58,10 @@ function BuiltGallery({ item }: { item: BuiltItem }) {
             preload="metadata"
             aria-label={`${item.title} video`}
           >
-            <source src={video} type={video.includes('.mp4') ? 'video/mp4' : 'video/webm'} />
+            <source
+              src={videoSrc}
+              type={videoSrc.includes('.mp4') ? 'video/mp4' : 'video/webm'}
+            />
           </video>
         </div>
       </figure>
@@ -84,7 +95,10 @@ function BuiltGallery({ item }: { item: BuiltItem }) {
     >
       <figure className="built-frame">
         <div className="built-frame__slot is-filled">
-          <img src={photo} alt={`${item.title}, photo ${index + 1} of ${count}`} />
+          <img
+            src={mediaUrl(photo)}
+            alt={`${item.title}, photo ${index + 1} of ${count}`}
+          />
         </div>
       </figure>
       {count > 1 ? (
@@ -100,16 +114,17 @@ function BuiltGallery({ item }: { item: BuiltItem }) {
           <div className="built-gallery__thumbs">
             {photos.map((src, photoIndex) => {
               const selected = photoIndex === index;
+              const url = mediaUrl(src);
               return (
                 <button
-                  key={src}
+                  key={url}
                   type="button"
                   className={selected ? 'built-gallery__thumb is-active' : 'built-gallery__thumb'}
                   aria-label={`${item.title} photo ${photoIndex + 1}`}
                   aria-current={selected ? true : undefined}
                   onClick={() => setIndex(photoIndex)}
                 >
-                  <img src={src} alt="" />
+                  <img src={url} alt="" />
                 </button>
               );
             })}

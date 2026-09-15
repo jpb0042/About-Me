@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef } from 'react';
 import { gsap, prefersReducedMotion, SplitText, useGSAP } from '../lib/gsap';
 

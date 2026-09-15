@@ -13,7 +13,7 @@ export function About() {
           ))}
         </div>
         <figure className="portrait">
-          <img src={golf} alt="Golf" />
+          <img src={typeof golf === 'string' ? golf : golf.src} alt="Golf" />
           <figcaption>Golf</figcaption>
         </figure>
       </div>

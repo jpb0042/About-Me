@@ -9,7 +9,7 @@
   --line-strong: rgba(200, 221, 209, 0.42);
   --accent: #55e39c;
   --accent-dim: rgba(85, 227, 156, 0.16);
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
   color: var(--ink);
   background-color: var(--bg);
   font-family: var(--font-mono);
@@ -34,6 +34,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  min-height: 100vh;
   background:
     radial-gradient(1100px 620px at 8% -6%, rgba(85, 227, 156, 0.11), transparent 60%),
     radial-gradient(900px 620px at 100% 30%, rgba(35, 122, 90, 0.14), transparent 62%),
@@ -60,10 +61,6 @@ button:focus-visible {
 img {
   max-width: 100%;
   height: auto;
-}
-
-#root {
-  min-height: 100vh;
 }
 
 .page {

@@ -6,7 +6,6 @@ import logisticsPhoto from '../../assets/logistics.jpg';
 import logisticsPlanPhoto from '../../assets/logistics-plan.png';
 import logisticsStatusPhoto from '../../assets/logistics-status.jpg';
 import logisticsVehiclesPhoto from '../../assets/logistics-vehicles.jpg';
-import micromouseVideo from '../../assets/micromouse.webm';
 import stackhuntAddressPhoto from '../../assets/stackhunt-address.jpg';
 import stackhuntMatchesPhoto from '../../assets/stackhunt-matches.jpg';
 import stackhuntPhoto from '../../assets/stackhunt.jpg';
@@ -66,7 +65,7 @@ export const BUILT = {
       id: 'micromouse',
       title: 'MicroMouse',
       body: 'A maze-solving robot I built during my computer engineering work at WVU.',
-      video: micromouseVideo,
+      video: '/micromouse.webm',
     },
   ],
 } as const;
@@ -75,7 +74,7 @@ export const FOCUS = [
   {
     icon: 'react',
     title: 'React',
-    body: 'Vite apps and typed UI.',
+    body: 'Next.js apps and typed UI.',
   },
   {
     icon: 'typescript',

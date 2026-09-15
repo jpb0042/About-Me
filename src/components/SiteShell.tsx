@@ -1,4 +1,6 @@
-import { Link, Outlet } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { SITE } from '../views/Home/constants';
 import { usePageMotion } from '../lib/usePageMotion';
 import { SocialDock } from './SocialDock';
@@ -10,13 +12,13 @@ const NAV = [
   { href: '#contact', label: 'Contact' },
 ] as const;
 
-export function Layout() {
+export function SiteShell({ children }: { children: React.ReactNode }) {
   const pageRef = usePageMotion();
 
   return (
     <div className="page" ref={pageRef}>
       <header className="site-nav">
-        <Link to="/" className="site-nav__name">
+        <Link href="/" className="site-nav__name">
           {SITE.name}
         </Link>
         <nav className="site-nav__links" aria-label="Primary">
@@ -39,9 +41,7 @@ export function Layout() {
       </header>
 
       <div className="page__main">
-        <main>
-          <Outlet />
-        </main>
+        <main>{children}</main>
         <footer className="site-footer">
           <p>
             {SITE.name}, {SITE.location}

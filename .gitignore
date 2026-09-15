@@ -8,13 +8,18 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.pnpm-store
+.next
+out
 dist
 dist-ssr
 build
+.vercel
 *.local
 .env
 .env.*
 !.env.example
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*

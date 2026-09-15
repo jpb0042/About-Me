@@ -1,3 +1,3 @@
-export { Layout } from './Layout';
+export { SiteShell } from './SiteShell';
 export { SectionHead } from './SectionHead';
 export { SocialDock } from './SocialDock';

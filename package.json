@@ -2,45 +2,34 @@
   "name": "about-me",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "packageManager": "pnpm@10.5.2",
   "engines": {
     "node": ">=20.19.0"
   },
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc -b --pretty",
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "typecheck": "tsc --noEmit --pretty",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "clean": "rm -rf dist node_modules"
+    "clean": "rm -rf .next dist node_modules",
+    "site:deploy": "npx --yes vercel deploy --prod --yes --name about-me"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "gsap": "^3.15.0",
+    "next": "^15.5.4",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.1"
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@eslint/eslintrc": "^3.3.1",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
-    "@vitejs/plugin-react": "^6.1.0",
-    "eslint": "^10.9.0",
-    "eslint-plugin-react-hooks": "^7.0.0",
-    "eslint-plugin-react-refresh": "^0.4.26",
-    "globals": "^16.4.0",
-    "typescript": "~6.0.2",
-    "typescript-eslint": "^8.46.0",
-    "vite": "^8.2.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
+    "eslint": "^9.37.0",
+    "eslint-config-next": "^15.5.4",
+    "typescript": "~5.9.3"
   }
 }
