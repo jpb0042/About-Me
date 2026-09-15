@@ -1,7 +1,7 @@
 import { SectionHead } from 'components';
 import { EmailIcon, GitHubIcon, LinkedInIcon } from 'components/SocialIcons';
 import { CONTACT, LINKS } from '../constants';
-
+//vercel
 const ICONS = {
   GitHub: GitHubIcon,
   LinkedIn: LinkedInIcon,
