@@ -37,6 +37,7 @@ export const ABOUT = {
   paragraphs: [
     'I have a B.S. in Computer Engineering from West Virginia University.',
     'In my free time, I like to play golf and go fishing.',
+    "My favorite part of being a sofware engineer is translating complex customer requirements into scalable software. Over the years, I've learned how to architect a system that grows with the business without needing to be rebuilt.",
   ],
 };
 
